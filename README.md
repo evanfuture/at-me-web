@@ -2,6 +2,10 @@
 
 > What's happening with me right now?
 
+![Preview of at-me](./screenshot.png)
+
+This is very much a work in progress, so take it with a grain of salt.
+
 ## Build Setup
 
 ``` bash
