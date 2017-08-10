@@ -58,9 +58,9 @@ export default {
     position: absolute;
     width: calc(80vw - 40px);
     height: calc(80vw - 40px);
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
     left: 50%;
-    top: 50%;
+    top: 100%;
 }
 .moonDisc {
     position: absolute;

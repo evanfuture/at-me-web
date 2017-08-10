@@ -26,12 +26,26 @@ const mutations = {
         currentState.now = now;
         currentState.today = now.toDateString();
         currentState.sunTimes = SunCalc.getTimes(now, currentState.userLat, currentState.userLng);
-        currentState.moonTimes = SunCalc.getMoonTimes(
+        currentState.moonPhase = SunCalc.getMoonIllumination(now).phase;
+
+        const moonTimes = SunCalc.getMoonTimes(
             now,
             currentState.userLat,
             currentState.userLng,
         );
-        currentState.moonPhase = SunCalc.getMoonIllumination(now).phase;
+
+        if (moonTimes.rise > moonTimes.set) {
+            let yesterday = new Date();
+            yesterday.setDate(yesterday.getDate() - 1);
+            const yesterdaysMoonTimes = SunCalc.getMoonTimes(
+                yesterday,
+                currentState.userLat,
+                currentState.userLng,
+            );
+            moonTimes.rise = yesterdaysMoonTimes.rise;
+        }
+
+        currentState.moonTimes = moonTimes;
     },
 };
 

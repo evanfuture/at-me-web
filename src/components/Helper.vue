@@ -21,7 +21,6 @@ export default {
         const start = new Date().setHours(0, 0, 0, 0);
         const end = new Date().setHours(23, 59, 59, 999);
         const fullDay = end - start;
-        console.log(this.$store.state.sunTimes.sunrise);
 
         return {
             value: this.$store.state.now,
